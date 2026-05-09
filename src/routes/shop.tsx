@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { PageHero } from "@/components/site/PageHero";
-import { ShoppingBag, Heart, Truck } from "lucide-react";
+import { ShoppingBag, Heart, Truck, Plus, Check } from "lucide-react";
 import { useCart } from "@/components/cart/CartContext";
 import tshirt from "@/assets/shop-tshirt.jpg";
 import hoodie from "@/assets/shop-hoodie.jpg";
@@ -73,5 +74,70 @@ function Shop() {
         </div>
       </section>
     </>
+  );
+}
+
+type Product = (typeof products)[number];
+
+function ProductCard({ product, onAdd }: { product: Product; onAdd: ReturnType<typeof useCart>["add"] }) {
+  const hasSizes = product.sizes.length > 0;
+  const [size, setSize] = useState<string>(hasSizes ? product.sizes[0] : "");
+  const [added, setAdded] = useState(false);
+
+  const handleAdd = () => {
+    onAdd({ id: product.id, name: product.name, price: product.price, image: product.image, size: size || undefined });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1200);
+  };
+
+  return (
+    <article className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card transition-shadow hover:shadow-warm">
+      <div className="relative aspect-square overflow-hidden bg-cream">
+        <img
+          src={product.image}
+          alt={product.name}
+          width={800}
+          height={800}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {product.tag && (
+          <span className="absolute left-3 top-3 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">
+            {product.tag}
+          </span>
+        )}
+      </div>
+      <div className="flex flex-1 flex-col p-5">
+        <h3 className="font-display text-xl">{product.name}</h3>
+        <p className="mt-1 text-xs text-muted-foreground">{product.desc}</p>
+        {hasSizes && (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {product.sizes.map((s) => (
+              <button
+                key={s}
+                onClick={() => setSize(s)}
+                className={
+                  "h-7 min-w-8 rounded-full border px-2 text-[11px] font-semibold transition-colors " +
+                  (size === s
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-border bg-background hover:border-primary")
+                }
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+        )}
+        <div className="mt-4 flex items-center justify-between gap-2">
+          <p className="font-display text-lg text-primary">KSh {product.price.toLocaleString()}</p>
+          <button
+            onClick={handleAdd}
+            className="inline-flex items-center gap-1.5 rounded-full bg-gradient-warm px-4 py-2 text-xs font-semibold text-primary-foreground shadow-warm transition-transform hover:-translate-y-0.5"
+          >
+            {added ? <><Check className="h-3.5 w-3.5" /> Added</> : <><Plus className="h-3.5 w-3.5" /> Add</>}
+          </button>
+        </div>
+      </div>
+    </article>
   );
 }
