@@ -39,6 +39,7 @@ export function Footer() {
                 ["Events", "/events"],
                 ["Gallery", "/gallery"],
                 ["Volunteer", "/volunteer"],
+                ["Shop", "/shop"],
               ].map(([label, to]) => (
                 <li key={to}>
                   <Link to={to} className="text-muted-foreground hover:text-primary">
