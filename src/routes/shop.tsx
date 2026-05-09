@@ -58,33 +58,7 @@ function Shop() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((p) => (
-            <article key={p.name} className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card transition-shadow hover:shadow-warm">
-              <div className="relative aspect-square overflow-hidden bg-cream">
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  width={800}
-                  height={800}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                {p.tag && (
-                  <span className="absolute left-3 top-3 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">
-                    {p.tag}
-                  </span>
-                )}
-              </div>
-              <div className="flex flex-1 flex-col p-5">
-                <h3 className="font-display text-xl">{p.name}</h3>
-                <p className="mt-1 text-xs text-muted-foreground">{p.desc}</p>
-                <div className="mt-4 flex items-center justify-between">
-                  <p className="font-display text-lg text-primary">KSh {p.price.toLocaleString()}</p>
-                  <button className="rounded-full bg-gradient-warm px-4 py-2 text-xs font-semibold text-primary-foreground shadow-warm">
-                    Add to cart
-                  </button>
-                </div>
-              </div>
-            </article>
+            <ProductCard key={p.id} product={p} onAdd={add} />
           ))}
         </div>
 
