@@ -21,13 +21,14 @@ export const Route = createFileRoute("/shop")({
 });
 
 const products = [
-  { name: "Signature Tee", price: 1500, image: tshirt, tag: "Bestseller", desc: "100% cotton, screen-printed in Nairobi." },
-  { name: "Sunday Hoodie", price: 3500, image: hoodie, tag: "New", desc: "Heavyweight fleece in earthy chapati brown." },
-  { name: "Outreach Cap", price: 1200, image: cap, tag: "", desc: "Embroidered six-panel cap, adjustable strap." },
-  { name: "Canvas Tote", price: 800, image: tote, tag: "", desc: "Sturdy 12oz canvas — carry the cause." },
+  { id: "tee", name: "Signature Tee", price: 1500, image: tshirt, tag: "Bestseller", desc: "100% cotton, screen-printed in Nairobi.", sizes: ["S", "M", "L", "XL"] },
+  { id: "hoodie", name: "Sunday Hoodie", price: 3500, image: hoodie, tag: "New", desc: "Heavyweight fleece in earthy chapati brown.", sizes: ["S", "M", "L", "XL"] },
+  { id: "cap", name: "Outreach Cap", price: 1200, image: cap, tag: "", desc: "Embroidered six-panel cap, adjustable strap.", sizes: [] },
+  { id: "tote", name: "Canvas Tote", price: 800, image: tote, tag: "", desc: "Sturdy 12oz canvas — carry the cause.", sizes: [] },
 ];
 
 function Shop() {
+  const { add } = useCart();
   return (
     <>
       <PageHero
