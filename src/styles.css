@@ -170,3 +170,19 @@
 @utility animate-float-slow {
   animation: float-slow 6s ease-in-out infinite;
 }
+
+@utility input {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid var(--color-input);
+  background-color: var(--color-background);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: var(--color-foreground);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+@utility input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary) 18%, transparent);
+}
