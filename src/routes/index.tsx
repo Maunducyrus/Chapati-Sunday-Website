@@ -51,31 +51,33 @@ function HomePage() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-sunset" />
-        <div className="container-page relative grid gap-12 py-16 md:py-24 lg:grid-cols-12 lg:gap-8 lg:py-28">
+        <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/15 blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
+        <div className="container-page relative grid gap-10 py-12 md:py-20 lg:grid-cols-12 lg:gap-10 lg:py-28">
           <div className="lg:col-span-6 flex flex-col justify-center">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-background/70 px-4 py-1.5 text-xs font-medium text-brown backdrop-blur">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-background/70 px-3 py-1.5 text-[11px] font-medium text-brown backdrop-blur sm:text-xs">
               <BadgeCheck className="h-3.5 w-3.5 text-leaf" />
               Fully Registered Community Group · Since 2019
             </span>
-            <h1 className="mt-5 font-display text-5xl leading-[0.95] tracking-tight md:text-6xl lg:text-7xl">
+            <h1 className="mt-5 font-display text-4xl leading-[1.02] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               Sharing <em className="not-italic text-gradient-warm">love, meals</em> and hope with children across Kenya.
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+            <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
               Every Sunday, our volunteers cook chapati, share stories and bring joy to children's homes — one warm meal at a time.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/donate" className="inline-flex items-center gap-2 rounded-full bg-gradient-warm px-6 py-3 text-sm font-semibold text-primary-foreground shadow-warm transition-transform hover:-translate-y-0.5">
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link to="/donate" className="inline-flex items-center gap-2 rounded-full bg-gradient-warm px-5 py-3 text-sm font-semibold text-primary-foreground shadow-warm transition-transform hover:-translate-y-0.5">
                 <Heart className="h-4 w-4" /> Donate Now
               </Link>
-              <Link to="/volunteer" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary">
+              <Link to="/volunteer" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary">
                 Become a Volunteer
               </Link>
-              <Link to="/impact" className="inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold text-foreground hover:text-primary">
-                See Our Impact <ArrowRight className="h-4 w-4" />
+              <Link to="/shop" className="inline-flex items-center gap-2 rounded-full px-3 py-3 text-sm font-semibold text-foreground hover:text-primary">
+                Shop Merch <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
-            <div className="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
+            <div className="mt-8 flex items-center gap-4 text-sm text-muted-foreground">
               <div className="flex -space-x-2">
                 {[g1, g4, g2].map((src, i) => (
                   <img key={i} src={src} alt="" width={36} height={36} className="h-9 w-9 rounded-full border-2 border-background object-cover" loading="lazy" />
@@ -86,18 +88,25 @@ function HomePage() {
           </div>
 
           <div className="lg:col-span-6 relative">
-            <div className="relative aspect-[5/6] overflow-hidden rounded-3xl shadow-warm">
-              <img src={heroImg} alt="Volunteers and children sharing chapati at sunset" className="h-full w-full object-cover" width={1600} height={1100} />
-              <div className="absolute inset-0 bg-gradient-to-t from-brown/40 via-transparent" />
-            </div>
-            <div className="absolute -left-4 bottom-8 hidden rounded-2xl bg-background/95 p-4 shadow-soft backdrop-blur md:block animate-float-slow">
-              <div className="flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-full bg-leaf/15 text-leaf">
-                  <Sparkles className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground">Last Sunday</p>
-                  <p className="text-sm font-semibold">240 meals shared in Nairobi</p>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-warm sm:aspect-[5/6]">
+              <img
+                src={heroImg}
+                alt="Volunteers and children sharing chapati at sunset in Kenya"
+                className="h-full w-full object-cover"
+                width={1080}
+                height={1536}
+                fetchPriority="high"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brown/50 via-brown/0 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl bg-background/95 p-3 shadow-soft backdrop-blur sm:bottom-6 sm:left-6 sm:right-auto sm:p-4">
+                <div className="flex items-center gap-3">
+                  <div className="grid h-10 w-10 place-items-center rounded-full bg-leaf/15 text-leaf">
+                    <Sparkles className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] text-muted-foreground">Last Sunday</p>
+                    <p className="text-sm font-semibold">240 meals shared in Nairobi</p>
+                  </div>
                 </div>
               </div>
             </div>
