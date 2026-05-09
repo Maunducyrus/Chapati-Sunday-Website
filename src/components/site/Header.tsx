@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X, Heart, ShoppingBag } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useCart } from "@/components/cart/CartContext";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -16,6 +17,25 @@ const navLinks = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const { count, open: openCart } = useCart();
+
+  const CartButton = ({ className = "" }: { className?: string }) => (
+    <button
+      onClick={openCart}
+      aria-label="Open cart"
+      className={cn(
+        "relative grid h-10 w-10 place-items-center rounded-full bg-secondary text-foreground hover:bg-muted",
+        className,
+      )}
+    >
+      <ShoppingBag className="h-4 w-4" />
+      {count > 0 && (
+        <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-primary px-1 text-[10px] font-bold text-primary-foreground">
+          {count}
+        </span>
+      )}
+    </button>
+  );
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
@@ -43,7 +63,8 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-2">
+          <CartButton />
           <Link
             to="/donate"
             className="inline-flex items-center gap-2 rounded-full bg-gradient-warm px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-warm transition-transform hover:-translate-y-0.5"
@@ -52,13 +73,16 @@ export function Header() {
           </Link>
         </div>
 
-        <button
-          className="lg:hidden grid h-10 w-10 place-items-center rounded-full bg-secondary text-foreground"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="lg:hidden flex items-center gap-2">
+          <CartButton />
+          <button
+            className="grid h-10 w-10 place-items-center rounded-full bg-secondary text-foreground"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       <div

@@ -16,6 +16,7 @@ import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as DonateRouteImport } from './routes/donate'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -54,6 +55,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -68,6 +74,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/checkout'
     | '/contact'
     | '/donate'
     | '/events'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/checkout'
     | '/contact'
     | '/donate'
     | '/events'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/checkout'
     | '/contact'
     | '/donate'
     | '/events'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
   DonateRoute: typeof DonateRoute
   EventsRoute: typeof EventsRoute
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
   DonateRoute: DonateRoute,
   EventsRoute: EventsRoute,

@@ -11,6 +11,8 @@ import {
 import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { CartProvider } from "@/components/cart/CartContext";
+import { CartDrawer } from "@/components/cart/CartDrawer";
 
 function NotFoundComponent() {
   return (
@@ -101,13 +103,16 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+      <CartProvider>
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+        <CartDrawer />
+      </CartProvider>
     </QueryClientProvider>
   );
 }
