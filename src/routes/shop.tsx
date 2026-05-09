@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { ShoppingBag, Heart, Truck } from "lucide-react";
+import { useCart } from "@/components/cart/CartContext";
 import tshirt from "@/assets/shop-tshirt.jpg";
 import hoodie from "@/assets/shop-hoodie.jpg";
 import cap from "@/assets/shop-cap.jpg";
