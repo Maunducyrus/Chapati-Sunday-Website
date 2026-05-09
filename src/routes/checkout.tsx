@@ -132,7 +132,7 @@ function Checkout() {
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="input"
+                    className="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                     placeholder="Jane Wanjiku"
                   />
                 </Field>
@@ -142,7 +142,7 @@ function Checkout() {
                     type="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="input"
+                    className="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                     placeholder="07XX XXX XXX"
                   />
                 </Field>
@@ -152,7 +152,7 @@ function Checkout() {
                   required
                   value={form.city}
                   onChange={(e) => setForm({ ...form, city: e.target.value })}
-                  className="input"
+                  className="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                   placeholder="Nairobi"
                 />
               </Field>
@@ -162,7 +162,7 @@ function Checkout() {
                   rows={3}
                   value={form.address}
                   onChange={(e) => setForm({ ...form, address: e.target.value })}
-                  className="input resize-none"
+                  className="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none"
                   placeholder="Estate, street, building, house number"
                 />
               </Field>
@@ -171,7 +171,7 @@ function Checkout() {
                   rows={2}
                   value={form.notes}
                   onChange={(e) => setForm({ ...form, notes: e.target.value })}
-                  className="input resize-none"
+                  className="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none"
                   placeholder="Anything we should know?"
                 />
               </Field>
