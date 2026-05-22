@@ -103,6 +103,8 @@ function Checkout() {
 
   const handleSubmitDetails = (e: React.FormEvent) => {
     e.preventDefault();
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppMessage()}`;
+    window.open(url, "_blank", "noopener,noreferrer");
     setStage("pay");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -177,10 +179,13 @@ function Checkout() {
               </Field>
               <button
                 type="submit"
-                className="mt-2 w-full rounded-full bg-gradient-warm px-6 py-3 text-sm font-semibold text-primary-foreground shadow-warm"
+                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-leaf px-6 py-3 text-sm font-semibold text-leaf-foreground shadow-warm"
               >
-                Continue to payment →
+                <MessageCircle className="h-4 w-4" /> Send order via WhatsApp →
               </button>
+              <p className="text-center text-xs text-muted-foreground">
+                Your order summary opens in WhatsApp to +254 701 165 121. Payment details show next.
+              </p>
             </form>
           ) : (
             <div className="space-y-5">
