@@ -13,6 +13,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CartProvider } from "@/components/cart/CartContext";
 import { CartDrawer } from "@/components/cart/CartDrawer";
+import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 
 function NotFoundComponent() {
   return (
@@ -112,6 +113,7 @@ function RootComponent() {
           <Footer />
         </div>
         <CartDrawer />
+        <FloatingWhatsApp />
       </CartProvider>
     </QueryClientProvider>
   );
