@@ -15,7 +15,7 @@ export const Route = createFileRoute("/checkout")({
 
 const PAYBILL = "000000";
 const ACCOUNT_PREFIX = "SHOP";
-const WHATSAPP_NUMBER = "254700000000";
+const WHATSAPP_NUMBER = "254701165121";
 const SHIPPING_FLAT = 300;
 const SHIPPING_FREE_OVER = 5000;
 
