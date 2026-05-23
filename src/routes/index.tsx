@@ -26,13 +26,19 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-sunset" />
-        <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/15 blur-3xl" />
+      {/* HERO — full viewport background */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <img
+          src={hero.image}
+          alt={hero.imageAlt}
+          className="absolute inset-0 h-full w-full object-cover"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-brown/60 via-brown/40 to-background" />
+        <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
-        <div className="container-page relative grid gap-10 py-12 md:py-20 lg:grid-cols-12 lg:gap-10 lg:py-28">
-          <div className="lg:col-span-6 flex flex-col justify-center">
+        <div className="container-page relative grid min-h-screen gap-10 py-12 md:py-20 lg:grid-cols-12 lg:gap-10 lg:py-28">
+          <div className="lg:col-span-7 flex flex-col justify-center text-primary-foreground">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-background/70 px-3 py-1.5 text-[11px] font-medium text-brown backdrop-blur sm:text-xs">
               <BadgeCheck className="h-3.5 w-3.5 text-leaf" />
               {hero.badge}
