@@ -1,49 +1,26 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BadgeCheck, Heart, Sparkles, Users, Calendar, MapPin, Quote } from "lucide-react";
-import heroImg from "@/assets/hero-outreach.jpg";
-import aboutImg from "@/assets/about-team.jpg";
 import g1 from "@/assets/gallery-1.jpg";
 import g2 from "@/assets/gallery-2.jpg";
 import g3 from "@/assets/gallery-3.jpg";
 import g4 from "@/assets/gallery-4.jpg";
 import { Counter } from "@/components/site/Counter";
+import { siteContent } from "@/content/site";
+
+const { brand, hero, about, stats, needs, events, testimonials, cta } = siteContent;
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Chapati Sunday — Sharing Love, Meals & Hope" },
-      { name: "description", content: "We bring chapati, joy and hope to children's homes across Kenya. Volunteer, donate or join an outreach today." },
-      { property: "og:title", content: "Chapati Sunday — Sharing Love, Meals & Hope" },
-      { property: "og:description", content: "Volunteer, donate or join an outreach today." },
+      { title: `${brand.name} — ${brand.tagline}` },
+      { name: "description", content: brand.metaDescription },
+      { property: "og:title", content: `${brand.name} — ${brand.tagline}` },
+      { property: "og:description", content: brand.metaDescription },
+      { property: "og:image", content: hero.image },
     ],
   }),
   component: HomePage,
 });
-
-const stats = [
-  { value: 5000, suffix: "+", label: "Meals Shared" },
-  { value: 35, suffix: "", label: "Children's Homes Visited" },
-  { value: 120, suffix: "+", label: "Volunteers" },
-  { value: 10, suffix: "", label: "Counties Reached" },
-];
-
-const needs = [
-  { title: "Food", color: "primary", items: ["Flour", "Cooking oil", "Sugar", "Rice"] },
-  { title: "Children", color: "leaf", items: ["Clothes", "Shoes", "Sanitary pads", "School supplies"] },
-  { title: "Financial", color: "accent", items: ["Transport", "Medical support", "Emergency funds"] },
-];
-
-const events = [
-  { name: "Chapati Sunday Outreach", date: "June 15", location: "Nairobi", slots: 12 },
-  { name: "Back-to-School Drive", date: "July 06", location: "Kiambu", slots: 8 },
-  { name: "Mid-Year Mega Visit", date: "Aug 24", location: "Nakuru", slots: 20 },
-];
-
-const testimonials = [
-  { quote: "Chapati Sunday brought joy and hope to our children. Their visits are a highlight every month.", name: "Mama Rose", role: "Home Director, Hope Children's Home" },
-  { quote: "Volunteering changed my life. I came to give and left with so much more.", name: "Brian K.", role: "Volunteer since 2022" },
-  { quote: "The team is consistent, kind and truly committed to our kids.", name: "Pastor Daniel", role: "Partner, Mercy Home" },
-];
 
 function HomePage() {
   return (
@@ -57,23 +34,23 @@ function HomePage() {
           <div className="lg:col-span-6 flex flex-col justify-center">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-background/70 px-3 py-1.5 text-[11px] font-medium text-brown backdrop-blur sm:text-xs">
               <BadgeCheck className="h-3.5 w-3.5 text-leaf" />
-              Fully Registered Community Group · Since 2019
+              {hero.badge}
             </span>
             <h1 className="mt-5 font-display text-4xl leading-[1.02] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              Sharing <em className="not-italic text-gradient-warm">love, meals</em> and hope with children across Kenya.
+              {hero.headlineStart}
+              <em className="not-italic text-gradient-warm">{hero.headlineHighlight}</em>
+              {hero.headlineEnd}
             </h1>
-            <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
-              Every Sunday, our volunteers cook chapati, share stories and bring joy to children's homes — one warm meal at a time.
-            </p>
+            <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">{hero.subtitle}</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link to="/donate" className="inline-flex items-center gap-2 rounded-full bg-gradient-warm px-5 py-3 text-sm font-semibold text-primary-foreground shadow-warm transition-transform hover:-translate-y-0.5">
-                <Heart className="h-4 w-4" /> Donate Now
+              <Link to={hero.primaryCta.href} className="inline-flex items-center gap-2 rounded-full bg-gradient-warm px-5 py-3 text-sm font-semibold text-primary-foreground shadow-warm transition-transform hover:-translate-y-0.5">
+                <Heart className="h-4 w-4" /> {hero.primaryCta.label}
               </Link>
-              <Link to="/volunteer" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary">
-                Become a Volunteer
+              <Link to={hero.secondaryCta.href} className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary">
+                {hero.secondaryCta.label}
               </Link>
-              <Link to="/shop" className="inline-flex items-center gap-2 rounded-full px-3 py-3 text-sm font-semibold text-foreground hover:text-primary">
-                Shop Merch <ArrowRight className="h-4 w-4" />
+              <Link to={hero.tertiaryCta.href} className="inline-flex items-center gap-2 rounded-full px-3 py-3 text-sm font-semibold text-foreground hover:text-primary">
+                {hero.tertiaryCta.label} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
@@ -83,15 +60,15 @@ function HomePage() {
                   <img key={i} src={src} alt="" width={36} height={36} className="h-9 w-9 rounded-full border-2 border-background object-cover" loading="lazy" />
                 ))}
               </div>
-              <p><span className="font-semibold text-foreground">120+ volunteers</span> serving with us</p>
+              <p><span className="font-semibold text-foreground">{hero.socialProof}</span></p>
             </div>
           </div>
 
           <div className="lg:col-span-6 relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-warm sm:aspect-[5/6]">
               <img
-                src={heroImg}
-                alt="Volunteers and children sharing chapati at sunset in Kenya"
+                src={hero.image}
+                alt={hero.imageAlt}
                 className="h-full w-full object-cover"
                 width={1080}
                 height={1536}
@@ -104,8 +81,8 @@ function HomePage() {
                     <Sparkles className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-[11px] text-muted-foreground">Last Sunday</p>
-                    <p className="text-sm font-semibold">240 meals shared in Nairobi</p>
+                    <p className="text-[11px] text-muted-foreground">{hero.overlayBadge.label}</p>
+                    <p className="text-sm font-semibold">{hero.overlayBadge.text}</p>
                   </div>
                 </div>
               </div>
@@ -141,33 +118,29 @@ function HomePage() {
       <section className="bg-cream py-20">
         <div className="container-page grid items-center gap-12 lg:grid-cols-2">
           <div className="relative">
-            <img src={aboutImg} alt="Volunteers cooking chapati together" className="aspect-[4/3] w-full rounded-3xl object-cover shadow-soft" width={1200} height={900} loading="lazy" />
+            <img src={about.image} alt="Volunteers cooking chapati together" className="aspect-[4/3] w-full rounded-3xl object-cover shadow-soft" width={1200} height={900} loading="lazy" />
             <div className="absolute -bottom-6 -right-4 hidden rounded-2xl bg-background p-4 shadow-warm md:block">
-              <p className="font-display text-3xl text-primary">2019</p>
+              <p className="font-display text-3xl text-primary">{brand.foundedYear}</p>
               <p className="text-xs text-muted-foreground">Year founded</p>
             </div>
           </div>
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">About Chapati Sunday</p>
-            <h2 className="mt-2 font-display text-4xl md:text-5xl">A simple meal that became a movement.</h2>
-            <p className="mt-5 text-muted-foreground">
-              What started as a handful of friends rolling chapati on a quiet Sunday has grown into a
-              community of over a hundred volunteers reaching children's homes in ten counties.
-            </p>
-            <p className="mt-4 text-muted-foreground">
-              We believe a warm meal is more than food — it is dignity, presence and the promise that someone cares.
-            </p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">{about.eyebrow}</p>
+            <h2 className="mt-2 font-display text-4xl md:text-5xl">{about.title}</h2>
+            {about.paragraphs.map((p, i) => (
+              <p key={i} className="mt-5 text-muted-foreground">{p}</p>
+            ))}
             <div className="mt-7 grid gap-4 sm:grid-cols-2">
-              {[
-                { icon: Heart, title: "Our Mission", text: "Bring nourishment and joy to every child we meet." },
-                { icon: Sparkles, title: "Our Vision", text: "A Kenya where no child eats — or feels — alone." },
-              ].map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-2xl border border-border bg-background p-5">
-                  <Icon className="h-5 w-5 text-primary" />
-                  <p className="mt-3 font-display text-lg">{title}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{text}</p>
-                </div>
-              ))}
+              <div className="rounded-2xl border border-border bg-background p-5">
+                <Heart className="h-5 w-5 text-primary" />
+                <p className="mt-3 font-display text-lg">Our Mission</p>
+                <p className="mt-1 text-sm text-muted-foreground">{about.mission}</p>
+              </div>
+              <div className="rounded-2xl border border-border bg-background p-5">
+                <Sparkles className="h-5 w-5 text-primary" />
+                <p className="mt-3 font-display text-lg">Our Vision</p>
+                <p className="mt-1 text-sm text-muted-foreground">{about.vision}</p>
+              </div>
             </div>
             <Link to="/about" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
               Read our story <ArrowRight className="h-4 w-4" />
@@ -290,17 +263,15 @@ function HomePage() {
           <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
               <Users className="h-8 w-8" />
-              <h2 className="mt-4 font-display text-4xl md:text-5xl">Become part of the Sunday family.</h2>
-              <p className="mt-4 max-w-lg text-primary-foreground/90">
-                Whether you cook, drive, coordinate or donate — there is a place for you at the table.
-              </p>
+              <h2 className="mt-4 font-display text-4xl md:text-5xl">{cta.title}</h2>
+              <p className="mt-4 max-w-lg text-primary-foreground/90">{cta.description}</p>
             </div>
             <div className="flex flex-wrap gap-3 lg:justify-end">
-              <Link to="/volunteer" className="rounded-full bg-background px-6 py-3 text-sm font-semibold text-foreground hover:bg-cream">
-                Join the Team
+              <Link to={cta.primary.href} className="rounded-full bg-background px-6 py-3 text-sm font-semibold text-foreground hover:bg-cream">
+                {cta.primary.label}
               </Link>
-              <Link to="/donate" className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-white/10">
-                Make a Donation
+              <Link to={cta.secondary.href} className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-white/10">
+                {cta.secondary.label}
               </Link>
             </div>
           </div>
