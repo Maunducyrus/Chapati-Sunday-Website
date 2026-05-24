@@ -87,17 +87,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* DUMMY IMAGE — swap src/assets/placeholder-home.png with your own */}
-      <section className="container-page py-12">
-        <img
-          src={placeholderImg}
-          alt="Replace this placeholder image"
-          className="w-full rounded-3xl object-cover shadow-soft"
-          width={1200}
-          height={800}
-          loading="lazy"
-        />
-      </section>
 
       {/* IMPACT */}
       <section className="container-page py-20">
