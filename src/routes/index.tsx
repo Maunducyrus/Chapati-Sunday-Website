@@ -4,7 +4,8 @@ import g1 from "@/assets/gallery-1.jpg";
 import g2 from "@/assets/gallery-2.jpg";
 import g3 from "@/assets/gallery-3.jpg";
 import g4 from "@/assets/gallery-4.jpg";
-import placeholderImg from "@/assets/placeholder-home.png";
+
+
 import { Counter } from "@/components/site/Counter";
 import { siteContent } from "@/content/site";
 
@@ -86,19 +87,6 @@ function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* DUMMY IMAGE — swap src/assets/placeholder-home.png with your own */}
-      <section className="container-page py-12">
-        <img
-          src={placeholderImg}
-          alt="Replace this placeholder image"
-          className="w-full rounded-3xl object-cover shadow-soft"
-          width={1200}
-          height={800}
-          loading="lazy"
-        />
-      </section>
-
       {/* IMPACT */}
       <section className="container-page py-20">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
