@@ -23,8 +23,32 @@ const roles = [
   { icon: HeartHandshake, title: "Fundraising", text: "Mobilize resources, sponsors and partners." },
 ];
 
+const WHATSAPP_NUMBER = "254701165121";
+
 function Volunteer() {
   const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const name = String(fd.get("name") ?? "");
+    const phone = String(fd.get("phone") ?? "");
+    const email = String(fd.get("email") ?? "");
+    const role = String(fd.get("role") ?? "");
+    const reason = String(fd.get("reason") ?? "");
+
+    const message =
+      `*New Volunteer Registration*%0A%0A` +
+      `*Name:* ${name}%0A` +
+      `*Phone:* ${phone}%0A` +
+      `*Email:* ${email}%0A` +
+      `*Preferred Role:* ${role}%0A` +
+      `*Why join:* ${reason}`;
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+    setSubmitted(true);
+  }
+
   return (
     <>
       <PageHero
@@ -48,16 +72,19 @@ function Volunteer() {
       <section className="bg-cream py-20">
         <div className="container-page max-w-2xl">
           <h2 className="font-display text-3xl md:text-4xl">Register as a Volunteer</h2>
-          <p className="mt-3 text-muted-foreground">After signing up you'll receive a welcome message and our volunteer guidelines.</p>
+          <p className="mt-3 text-muted-foreground">Fill in your details — your registration will be sent to our team on WhatsApp so we can welcome you personally.</p>
 
           {submitted ? (
             <div className="mt-8 rounded-3xl border border-leaf/30 bg-background p-8 text-center shadow-soft">
               <p className="font-display text-2xl">Karibu! 🎉</p>
-              <p className="mt-2 text-muted-foreground">Thank you for joining. We'll be in touch shortly with onboarding details.</p>
+              <p className="mt-2 text-muted-foreground">Your WhatsApp message is ready — tap send to complete your registration.</p>
+              <button onClick={() => setSubmitted(false)} className="mt-4 text-sm font-semibold text-primary hover:underline">
+                Submit another registration
+              </button>
             </div>
           ) : (
             <form
-              onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
+              onSubmit={handleSubmit}
               className="mt-8 grid gap-4 rounded-3xl border border-border bg-background p-6 shadow-soft md:p-8"
             >
               <div className="grid gap-4 md:grid-cols-2">
@@ -67,16 +94,16 @@ function Volunteer() {
               <Field label="Email" name="email" type="email" required />
               <div>
                 <label className="text-sm font-medium">Preferred Role</label>
-                <select className="mt-1.5 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm">
+                <select name="role" className="mt-1.5 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm">
                   {roles.map((r) => <option key={r.title}>{r.title}</option>)}
                 </select>
               </div>
               <div>
                 <label className="text-sm font-medium">Why do you want to join?</label>
-                <textarea rows={4} className="mt-1.5 w-full resize-none rounded-xl border border-input bg-background px-4 py-3 text-sm" />
+                <textarea name="reason" rows={4} className="mt-1.5 w-full resize-none rounded-xl border border-input bg-background px-4 py-3 text-sm" />
               </div>
               <button type="submit" className="mt-2 inline-flex items-center justify-center rounded-full bg-gradient-warm px-6 py-3 text-sm font-semibold text-primary-foreground shadow-warm hover:-translate-y-0.5 transition-transform">
-                Submit Registration
+                Send via WhatsApp
               </button>
             </form>
           )}

@@ -1,6 +1,15 @@
 import { Link } from "@tanstack/react-router";
 import { Heart, Mail, Phone, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
 
+// TikTok logo — lucide doesn't include one, so a tiny inline SVG keeps the social row consistent.
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9.61a8.16 8.16 0 0 0 4.77 1.52V7.7a4.85 4.85 0 0 1-1.84-1.01z" />
+    </svg>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-border/60 bg-cream">
@@ -17,12 +26,17 @@ export function Footer() {
               A fully registered community group sharing love, meals, and hope with children across Kenya since 2019.
             </p>
             <div className="mt-5 flex gap-2">
-              {[Facebook, Instagram, Twitter].map((Icon, i) => (
+              {[
+                { Icon: Facebook, label: "Facebook" },
+                { Icon: Instagram, label: "Instagram" },
+                { Icon: Twitter, label: "Twitter" },
+                { Icon: TikTokIcon, label: "TikTok" },
+              ].map(({ Icon, label }) => (
                 <a
-                  key={i}
+                  key={label}
                   href="#"
                   className="grid h-9 w-9 place-items-center rounded-full bg-background text-foreground/70 transition-colors hover:bg-primary hover:text-primary-foreground"
-                  aria-label="Social"
+                  aria-label={label}
                 >
                   <Icon className="h-4 w-4" />
                 </a>

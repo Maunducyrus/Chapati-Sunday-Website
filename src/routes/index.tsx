@@ -222,9 +222,9 @@ function HomePage() {
           </div>
           <Link to="/gallery" className="text-sm font-semibold text-primary hover:underline">View full gallery →</Link>
         </div>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[g1, g2, g3, g4].map((src, i) => (
-            <div key={i} className={`overflow-hidden rounded-3xl ${i % 3 === 0 ? "row-span-2" : ""}`}>
+            <div key={i} className="aspect-square overflow-hidden rounded-3xl">
               <img src={src} alt="" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" width={900} height={900} />
             </div>
           ))}
