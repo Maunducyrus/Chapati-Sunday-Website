@@ -93,89 +93,94 @@ function Gallery() {
         title={<>Moments of <em className="not-italic text-gradient-warm">joy</em> and connection.</>}
         description="Photographs and videos from our outreach visits, kitchens and the children we love."
       />
-      <section className="container-page py-20">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {photos.map((p, i) => (
-            <div
-              key={i}
-              // className="aspect-square overflow-hidden rounded-3xl border border-border bg-cream"
-              className="aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-cream"
-            >
-              <ImageIcon className="h-4 w-4" /> Images
-            </button>
-            <button
-              onClick={() => setTab("videos")}
-              className={`inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium transition-colors ${
-                tab === "videos"
-                  ? "bg-foreground text-background"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              <VideoIcon className="h-4 w-4" /> Videos
-            </button>
-          </div>
-        </div>
+<section className="container-page py-20">
+  {/* Tabs */}
+  <div className="mb-6 flex items-center gap-3">
+    <button
+      onClick={() => setTab("images")}
+      className={`inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium transition-colors ${
+        tab === "images"
+          ? "bg-foreground text-background"
+          : "text-muted-foreground hover:text-foreground"
+      }`}
+    >
+      <ImageIcon className="h-4 w-4" /> Images
+    </button>
 
-        {tab === "images" ? (
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {photos.map((p, i) => (
-              <div
-                key={i}
-                className="aspect-square overflow-hidden rounded-3xl border border-border bg-cream"
-              >
-                {p.placeholder || !p.src ? (
-                  <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
-                    <ImageIcon className="h-8 w-8" />
-                    <p className="text-xs">Image coming soon</p>
-                  </div>
-                ) : (
-                  <img
-                    src={p.src}
-                    alt={p.alt ?? ""}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                )}
+    <button
+      onClick={() => setTab("videos")}
+      className={`inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium transition-colors ${
+        tab === "videos"
+          ? "bg-foreground text-background"
+          : "text-muted-foreground hover:text-foreground"
+      }`}
+    >
+      <VideoIcon className="h-4 w-4" /> Videos
+    </button>
+  </div>
+
+  {/* Images */}
+  {tab === "images" ? (
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {photos.map((p, i) => (
+        <div
+          key={i}
+          className="aspect-square overflow-hidden rounded-3xl border border-border bg-cream"
+        >
+          {p.placeholder || !p.src ? (
+            <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
+              <ImageIcon className="h-8 w-8" />
+              <p className="text-xs">Image coming soon</p>
+            </div>
+          ) : (
+            <img
+              src={p.src}
+              alt={p.alt ?? ""}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+            />
+          )}
+        </div>
+      ))}
+    </div>
+  ) : (
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {videos.map((v, i) => (
+        <div key={i} className="overflow-hidden rounded-3xl border border-border bg-cream">
+          <div className="aspect-video w-full bg-foreground/5">
+            {v.placeholder || !v.src ? (
+              <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
+                <VideoIcon className="h-8 w-8" />
+                <p className="text-xs">Video coming soon</p>
               </div>
-            ))}
+            ) : v.type === "file" ? (
+              <video
+                src={v.src}
+                poster={v.poster}
+                controls
+                preload="metadata"
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <iframe
+                src={v.src}
+                title={v.title ?? "Video"}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="h-full w-full"
+              />
+            )}
           </div>
-        ) : (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {videos.map((v, i) => (
-              <div key={i} className="overflow-hidden rounded-3xl border border-border bg-cream">
-                <div className="aspect-video w-full bg-foreground/5">
-                  {v.placeholder || !v.src ? (
-                    <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
-                      <VideoIcon className="h-8 w-8" />
-                      <p className="text-xs">Video coming soon</p>
-                    </div>
-                  ) : v.type === "file" ? (
-                    <video
-                      src={v.src}
-                      poster={v.poster}
-                      controls
-                      preload="metadata"
-                      className="h-full w-full object-cover"
-                    />
-                  ) : (
-                    <iframe
-                      src={v.src}
-                      title={v.title ?? "Video"}
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="h-full w-full"
-                    />
-                  )}
-                </div>
-                {v.title && (
-                  <p className="px-4 py-3 text-sm text-muted-foreground">{v.title}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
+
+          {v.title && (
+            <p className="px-4 py-3 text-sm text-muted-foreground">{v.title}</p>
+          )}
+        </div>
+      ))}
+    </div>
+  )}
+</section>
     </>
   );
 }
