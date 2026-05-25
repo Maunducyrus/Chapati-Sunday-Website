@@ -23,19 +23,19 @@ export const Route = createFileRoute("/gallery")({
 // EDIT THIS LIST — mix of local assets, dummy URLs, and { placeholder: true } slots.
 // To add a real image later: replace { placeholder: true } with { src: "https://..." }
 // or import a local file at the top and use { src: yourImport }.
-type Photo = { src?: string; alt?: string; placeholder?: boolean; size?: "lg" | "sm" };
+type Photo = { src?: string; alt?: string; placeholder?: boolean };
 
 const photos: Photo[] = [
-  { src: hero, alt: "Outreach team at sunset", size: "lg" },
+  { src: hero, alt: "Outreach team at sunset" },
   { src: g1, alt: "Children sharing chapati" },
   { src: g2, alt: "Volunteers cooking" },
-  { src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80", alt: "Community gathering", size: "lg" },
+  { src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80", alt: "Community gathering" },
   { src: g3, alt: "Mid-day meal service" },
   { src: g4, alt: "Joy at the table" },
-  { src: about, alt: "Our team", size: "lg" },
+  { src: about, alt: "Our team" },
   { src: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1200&q=80", alt: "Children playing" },
+  { src: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1200&q=80", alt: "Hands sharing food" },
   { placeholder: true },
-  { src: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1200&q=80", alt: "Hands sharing food", size: "lg" },
   { placeholder: true },
   { placeholder: true },
 ];
@@ -49,30 +49,27 @@ function Gallery() {
         description="Photographs from our outreach visits, kitchens and the children we love."
       />
       <section className="container-page py-20">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {photos.map((p, i) => {
-            const aspect = p.size === "lg" ? "aspect-[4/3]" : "aspect-square";
-            return (
-              <div
-                key={i}
-                className={`${aspect} ${p.size === "lg" ? "sm:col-span-2" : ""} overflow-hidden rounded-3xl border border-border bg-cream`}
-              >
-                {p.placeholder || !p.src ? (
-                  <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
-                    <ImageIcon className="h-8 w-8" />
-                    <p className="text-xs">Image coming soon</p>
-                  </div>
-                ) : (
-                  <img
-                    src={p.src}
-                    alt={p.alt ?? ""}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                )}
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {photos.map((p, i) => (
+            <div
+              key={i}
+              className="aspect-square overflow-hidden rounded-3xl border border-border bg-cream"
+            >
+              {p.placeholder || !p.src ? (
+                <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
+                  <ImageIcon className="h-8 w-8" />
+                  <p className="text-xs">Image coming soon</p>
+                </div>
+              ) : (
+                <img
+                  src={p.src}
+                  alt={p.alt ?? ""}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              )}
+            </div>
+          ))}
         </div>
       </section>
     </>
