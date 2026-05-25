@@ -1,19 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import aboutImg from "@/assets/about-team.jpg";
 import { Heart, Sparkles, Users, HandHeart } from "lucide-react";
-
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Chapati Sunday" },
-      { name: "description", content: "Our story, mission and values — how a small Sunday meal grew into a movement." },
-      { property: "og:title", content: "About Chapati Sunday" },
-      { property: "og:description", content: "Our story, mission and values." },
-    ],
-  }),
-  component: About,
-});
 
 const milestones = [
   { year: "2019", text: "Friends roll the first chapatis for a children's home in Kasarani." },
@@ -29,7 +16,7 @@ const values = [
   { icon: Sparkles, title: "Joy", text: "We make every visit a celebration." },
 ];
 
-function About() {
+export default function About() {
   return (
     <>
       <PageHero

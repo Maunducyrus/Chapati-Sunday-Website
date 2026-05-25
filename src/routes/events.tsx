@@ -1,18 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { PageHero } from "@/components/site/PageHero";
 import { Calendar, MapPin, Users } from "lucide-react";
-
-export const Route = createFileRoute("/events")({
-  head: () => ({
-    meta: [
-      { title: "Events — Chapati Sunday" },
-      { name: "description", content: "Upcoming outreach events. Find a date and join us in serving." },
-      { property: "og:title", content: "Upcoming Events" },
-      { property: "og:description", content: "Join an upcoming outreach." },
-    ],
-  }),
-  component: Events,
-});
 
 const events = [
   { name: "Chapati Sunday Outreach", date: "May 31, 2026", location: "Kiambu", slots: 100, desc: "Cooking, games and storytime with the kids of Hope Children's Home." },
@@ -21,7 +9,7 @@ const events = [
   { name: "Mentorship Sunday", date: "Sept 14, 2026", location: "....", slots: 100, desc: "Career conversations with teen residents at Pwani Children's Home." },
 ];
 
-function Events() {
+export default function Events() {
   return (
     <>
       <PageHero

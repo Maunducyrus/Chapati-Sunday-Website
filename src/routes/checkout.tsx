@@ -1,17 +1,7 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCart } from "@/components/cart/CartContext";
 import { Check, Copy, MessageCircle, ShoppingBag } from "lucide-react";
-
-export const Route = createFileRoute("/checkout")({
-  head: () => ({
-    meta: [
-      { title: "Checkout — Chapati Sunday Shop" },
-      { name: "description", content: "Pay via M-Pesa Paybill and confirm your merch order with our team." },
-    ],
-  }),
-  component: Checkout,
-});
 
 const PAYBILL = "714777";
 const ACCOUNT_PREFIX = "0740197332";
@@ -23,7 +13,7 @@ function genOrderId() {
   return `CS-${Date.now().toString(36).toUpperCase()}`;
 }
 
-function Checkout() {
+export default function Checkout() {
   const { items, subtotal, clear } = useCart();
   const navigate = useNavigate();
   const [orderId, setOrderId] = useState("");
@@ -38,7 +28,6 @@ function Checkout() {
 
   const shipping = subtotal === 0 ? 0 : subtotal >= SHIPPING_FREE_OVER ? 0 : SHIPPING_FLAT;
   const total = subtotal + shipping;
-  // const account = `${ACCOUNT_PREFIX}-${orderId.replace("CS-", "")}`;
   const account = ACCOUNT_PREFIX;
 
   const copy = (text: string, key: string) => {
@@ -113,7 +102,7 @@ function Checkout() {
   const handleConfirmPaid = () => {
     setConfirmed(true);
     clear();
-    setTimeout(() => navigate({ to: "/" }), 6000);
+    setTimeout(() => navigate("/"), 6000);
   };
 
   return (

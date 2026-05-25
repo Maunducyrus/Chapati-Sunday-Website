@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Heart, Mail, Phone, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
 
 // TikTok logo — lucide doesn't include one, so a tiny inline SVG keeps the social row consistent.
@@ -27,14 +27,16 @@ export function Footer() {
             </p>
             <div className="mt-5 flex gap-2">
               {[
-                { Icon: Facebook, label: "Facebook" },
-                { Icon: Instagram, label: "Instagram" },
-                { Icon: Twitter, label: "Twitter" },
-                { Icon: TikTokIcon, label: "TikTok" },
-              ].map(({ Icon, label }) => (
+                { Icon: Facebook, label: "Facebook", href: "https://www.facebook.com/chapati2019/" },
+                { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/chapati_sunday/" },
+                { Icon: Twitter, label: "Twitter", href: "https://x.com/ChapatiSunday"},
+                { Icon: TikTokIcon, label: "TikTok", href: "https://www.tiktok.com/@chapati_sunday" },
+              ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="grid h-9 w-9 place-items-center rounded-full bg-background text-foreground/70 transition-colors hover:bg-primary hover:text-primary-foreground"
                   aria-label={label}
                 >
@@ -91,7 +93,7 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
           {/* <p>Reg. No. CDF/00000/2019 — Fully Registered Community Group</p> */}
           <p>© {new Date().getFullYear()} Chapati Sunday. Made with love ❤️ by <Link to="https://github.com/Maunducyrus" className="text-primary hover:underline">
-                  Cyrus Maundu
+                  <b>Cyrus Maundu</b>
                 </Link></p>
         </div>
       </div>

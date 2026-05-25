@@ -1,19 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { ChefHat, Car, Megaphone, Camera, HeartHandshake } from "lucide-react";
 import { useState } from "react";
-
-export const Route = createFileRoute("/volunteer")({
-  head: () => ({
-    meta: [
-      { title: "Volunteer — Chapati Sunday" },
-      { name: "description", content: "Join the Chapati Sunday family. Cook, drive, coordinate, document or fundraise with us." },
-      { property: "og:title", content: "Volunteer with Chapati Sunday" },
-      { property: "og:description", content: "Join the Sunday family." },
-    ],
-  }),
-  component: Volunteer,
-});
 
 const roles = [
   { icon: ChefHat, title: "Cooking Team", text: "Roll, knead and cook chapati with our kitchen crew." },
@@ -25,7 +12,7 @@ const roles = [
 
 const WHATSAPP_NUMBER = "254701165121";
 
-function Volunteer() {
+export default function Volunteer() {
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {

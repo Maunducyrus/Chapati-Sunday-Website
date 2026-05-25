@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageHero } from "@/components/site/PageHero";
 import { ShoppingBag, Heart, Truck, Plus, Check } from "lucide-react";
@@ -8,19 +7,6 @@ import hoodie from "@/assets/shop-hoodie.jpg";
 import cap from "@/assets/shop-cap.jpg";
 import tote from "@/assets/shop-tote.jpg";
 
-export const Route = createFileRoute("/shop")({
-  head: () => ({
-    meta: [
-      { title: "Shop — Chapati Sunday" },
-      { name: "description", content: "Wear the cause. Every t-shirt, hoodie, cap and tote you buy funds meals for children across Kenya." },
-      { property: "og:title", content: "Shop Chapati Sunday Merch" },
-      { property: "og:description", content: "Branded merch that funds chapati outreach." },
-      { property: "og:image", content: tshirt },
-    ],
-  }),
-  component: Shop,
-});
-
 const products = [
   { id: "tee", name: "Signature Tee", price: 1500, image: tshirt, tag: "Bestseller", desc: "100% cotton, screen-printed in Nairobi.", sizes: ["S", "M", "L", "XL"] },
   { id: "hoodie", name: "Sunday Hoodie", price: 3500, image: hoodie, tag: "New", desc: "Heavyweight fleece in earthy chapati brown.", sizes: ["S", "M", "L", "XL"] },
@@ -28,7 +14,7 @@ const products = [
   { id: "tote", name: "Canvas Tote", price: 800, image: tote, tag: "", desc: "Sturdy 12oz canvas — carry the cause.", sizes: [] },
 ];
 
-function Shop() {
+export default function Shop() {
   const { add } = useCart();
   return (
     <>

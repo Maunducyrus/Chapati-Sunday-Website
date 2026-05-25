@@ -1,20 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Chapati Sunday" },
-      { name: "description", content: "Get in touch with Chapati Sunday. Phone, email, WhatsApp and our location in Nairobi." },
-      { property: "og:title", content: "Contact Chapati Sunday" },
-      { property: "og:description", content: "Reach out — we'd love to hear from you." },
-    ],
-  }),
-  component: Contact,
-});
-
-function Contact() {
+export default function Contact() {
   return (
     <>
       <PageHero

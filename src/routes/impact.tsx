@@ -1,18 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { Counter } from "@/components/site/Counter";
-
-export const Route = createFileRoute("/impact")({
-  head: () => ({
-    meta: [
-      { title: "Impact — Chapati Sunday" },
-      { name: "description", content: "The numbers behind our outreach: meals shared, homes visited and communities reached." },
-      { property: "og:title", content: "Our Impact" },
-      { property: "og:description", content: "The numbers behind our outreach." },
-    ],
-  }),
-  component: Impact,
-});
 
 const stats = [
   { value: 5000, suffix: "+", label: "Meals Shared" },
@@ -23,7 +10,7 @@ const stats = [
   { value: 52, suffix: "", label: "Sunday Outreaches / Year" },
 ];
 
-function Impact() {
+export default function Impact() {
   return (
     <>
       <PageHero

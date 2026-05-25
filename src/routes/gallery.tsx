@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageHero } from "@/components/site/PageHero";
 import { ImageIcon, VideoIcon } from "lucide-react";
@@ -8,18 +7,6 @@ import g3 from "@/assets/gallery-3.jpg";
 import g4 from "@/assets/gallery-4.jpg";
 import hero from "@/assets/hero-outreach.jpg";
 import about from "@/assets/about-team.jpg";
-
-export const Route = createFileRoute("/gallery")({
-  head: () => ({
-    meta: [
-      { title: "Gallery — Chapati Sunday" },
-      { name: "description", content: "Moments from our outreach visits across Kenya." },
-      { property: "og:title", content: "Gallery — Chapati Sunday" },
-      { property: "og:description", content: "Moments from outreach visits." },
-    ],
-  }),
-  component: Gallery,
-});
 
 type Photo = { src?: string; alt?: string; placeholder?: boolean };
 
@@ -56,9 +43,7 @@ const photos: Photo[] = [
   { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779701224/G18_x8qvbh.jpg", alt: "Chapati Preparations" },  
 ];
 
-// EDIT THIS LIST — videos. Use YouTube/Vimeo embed URLs, or direct .mp4 URLs.
-// For YouTube: use "https://www.youtube.com/embed/VIDEO_ID"
-// For direct file: set type: "file" and src to the .mp4 URL.
+
 type Video = {
   src?: string;
   title?: string;
@@ -68,22 +53,54 @@ type Video = {
 };
 
 const videos: Video[] = [
+   {
+    type: "file",
+    src: "https://res.cloudinary.com/drg4s6msd/video/upload/v1779716643/Download_1_uixl5w.mp4",
+    title: "Chapati Sunday Team Building",
+    poster: hero,
+  },
   {
     type: "embed",
-    src: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    title: "Outreach highlights (replace with your video link)",
+    src: "https://res.cloudinary.com/drg4s6msd/video/upload/v1779716638/Download_3_qdrczy.mp4",
+    title: "Chapati Sunday Team Building",
   },
   {
     type: "file",
-    src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-    title: "Sample volunteer day (replace with your .mp4 link)",
+    src: "https://res.cloudinary.com/drg4s6msd/video/upload/v1779716637/Download_2_xg3bkg.mp4",
+    title: "Chapati Sunday Team",
     poster: hero,
   },
+  {
+    type: "file",
+    src: "https://res.cloudinary.com/drg4s6msd/video/upload/v1779716636/Download_4_mxchhd.mp4",
+    title: "Chapati Sunday Team",
+    poster: hero,
+  },  
+
+  //Demo videos
+    {
+    type: "file",
+    src: "https://res.cloudinary.com/drg4s6msd/video/upload/v1779715133/Video4_dkecnv.mp4",
+    title: "Chapati Sunday Team",
+    poster: hero,
+  },
+  {
+    type: "embed",
+    src: "https://res.cloudinary.com/drg4s6msd/video/upload/v1779714494/Video2_muzfsu.mp4",
+    title: "Chapati Sunday Team",
+  },
+  // {
+  //   type: "file",
+  //   src: "https://res.cloudinary.com/drg4s6msd/video/upload/v1779715381/Video5_errqbt.mp4",
+  //   title: "Chapati Sunday Team",
+  //   poster: hero,
+  // },
   { placeholder: true, title: "Video coming soon" },
   { placeholder: true, title: "Video coming soon" },
+  { placeholder: true, title: "Video coming soon" },  
 ];
 
-function Gallery() {
+export default function Gallery() {
   const [tab, setTab] = useState<"images" | "videos">("images");
 
   return (
@@ -125,7 +142,7 @@ function Gallery() {
       {photos.map((p, i) => (
         <div
           key={i}
-          className="aspect-square overflow-hidden rounded-3xl border border-border bg-cream"
+          className="aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-cream"
         >
           {p.placeholder || !p.src ? (
             <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
@@ -147,7 +164,7 @@ function Gallery() {
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {videos.map((v, i) => (
         <div key={i} className="overflow-hidden rounded-3xl border border-border bg-cream">
-          <div className="aspect-video w-full bg-foreground/5">
+          <div className="aspect-[4/5] w-full bg-foreground/5">
             {v.placeholder || !v.src ? (
               <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
                 <VideoIcon className="h-8 w-8" />

@@ -1,9 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowRight, BadgeCheck, Heart, Sparkles, Users, Calendar, MapPin, Quote } from "lucide-react";
 import g1 from "@/assets/gallery-1.jpg";
 import g2 from "@/assets/gallery-2.jpg";
 import g3 from "@/assets/gallery-3.jpg";
 import g4 from "@/assets/gallery-4.jpg";
+import heroImg from "@/assets/hero-outreach.jpg";
 
 
 import { Counter } from "@/components/site/Counter";
@@ -11,26 +12,13 @@ import { siteContent } from "@/content/site";
 
 const { brand, hero, about, stats, needs, events, testimonials, cta } = siteContent;
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: `${brand.name} — ${brand.tagline}` },
-      { name: "description", content: brand.metaDescription },
-      { property: "og:title", content: `${brand.name} — ${brand.tagline}` },
-      { property: "og:description", content: brand.metaDescription },
-      { property: "og:image", content: hero.image },
-    ],
-  }),
-  component: HomePage,
-});
-
-function HomePage() {
+export default function HomePage() {
   return (
     <>
       {/* HERO — full viewport background */}
       <section className="relative min-h-screen w-full overflow-hidden">
         <img
-          src={hero.image}
+          src={heroImg}
           alt={hero.imageAlt}
           className="absolute inset-0 h-full w-full object-cover"
           fetchPriority="high"

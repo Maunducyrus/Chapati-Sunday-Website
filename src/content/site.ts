@@ -13,7 +13,6 @@ export const siteContent = {
 
   // --- Hero section ---
   hero: {
-    image: heroImg, // replace src/assets/hero-outreach.jpg with your own photo
     imageAlt: "Volunteers and children sharing chapati at sunset in Kenya",
     badge: "Fully Registered Community Group · Since 2019",
     headlineStart: "Sharing ",

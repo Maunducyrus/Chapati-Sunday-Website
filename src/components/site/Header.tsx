@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Heart, ShoppingBag } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -57,15 +57,18 @@ export function Header() {
 
         <nav className="hidden items-center gap-1 lg:flex">
           {navLinks.map((l) => (
-            <Link
+            <NavLink
               key={l.to}
               to={l.to}
-              className="rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-              activeProps={{ className: "rounded-full px-3 py-2 text-sm font-medium text-foreground bg-secondary" }}
-              activeOptions={{ exact: l.to === "/" }}
+              end={l.to === "/"}
+              className={({ isActive }) =>
+                `rounded-full px-3 py-2 text-sm font-medium transition-colors hover:bg-secondary hover:text-foreground ${
+                  isActive ? "text-foreground bg-secondary" : "text-muted-foreground"
+                }`
+              }
             >
               {l.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 
@@ -99,16 +102,19 @@ export function Header() {
       >
         <nav className="container-page flex flex-col gap-1 py-4">
           {navLinks.map((l) => (
-            <Link
+            <NavLink
               key={l.to}
               to={l.to}
+              end={l.to === "/"}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
-              activeProps={{ className: "rounded-lg px-3 py-2.5 text-sm font-medium text-foreground bg-secondary" }}
-              activeOptions={{ exact: l.to === "/" }}
+              className={({ isActive }) =>
+                `rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-secondary hover:text-foreground ${
+                  isActive ? "text-foreground bg-secondary" : "text-muted-foreground"
+                }`
+              }
             >
               {l.label}
-            </Link>
+            </NavLink>
           ))}
           <Link
             to="/donate"

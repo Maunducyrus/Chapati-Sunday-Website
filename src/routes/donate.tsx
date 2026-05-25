@@ -1,22 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { Heart, Repeat, Home } from "lucide-react";
 
-export const Route = createFileRoute("/donate")({
-  head: () => ({
-    meta: [
-      { title: "Donate — Chapati Sunday" },
-      { name: "description", content: "Support our outreach via M-Pesa, bank transfer or sponsorship. Every shilling becomes a meal." },
-      { property: "og:title", content: "Donate to Chapati Sunday" },
-      { property: "og:description", content: "Every shilling becomes a meal." },
-    ],
-  }),
-  component: Donate,
-});
-
 const amounts = [500, 1000, 2500, 5000];
 
-function Donate() {
+export default function Donate() {
   return (
     <>
       <PageHero
