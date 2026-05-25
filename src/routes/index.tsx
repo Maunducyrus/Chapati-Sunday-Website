@@ -38,8 +38,10 @@ function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-brown/60 via-brown/40 to-background" />
         <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
-        <div className="container-page relative grid min-h-screen gap-10 py-12 md:py-20 lg:grid-cols-12 lg:gap-10 lg:py-28">
-          <div className="lg:col-span-7 flex flex-col justify-center text-primary-foreground">
+        {/* <div className="container-page relative grid min-h-screen gap-10 py-12 md:py-20 lg:grid-cols-12 lg:gap-10 lg:py-28"> */}
+        <div className="container-page relative grid min-h-[65vh] gap-10 pt-2 pb-12 md:pt-4 md:pb-16 lg:grid-cols-12 lg:gap-10 lg:pt-6 lg:pb-20">
+          {/* <div className="lg:col-span-7 flex flex-col justify-center text-primary-foreground"> */}
+          <div className="lg:col-span-7 flex flex-col justify-start pt-2 text-primary-foreground">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-background/70 px-3 py-1.5 text-[11px] font-medium text-brown backdrop-blur sm:text-xs">
               <BadgeCheck className="h-3.5 w-3.5 text-leaf" />
               {hero.badge}

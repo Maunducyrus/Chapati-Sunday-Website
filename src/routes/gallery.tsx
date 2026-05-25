@@ -20,24 +20,39 @@ export const Route = createFileRoute("/gallery")({
   component: Gallery,
 });
 
-// EDIT THIS LIST — mix of local assets, dummy URLs, and { placeholder: true } slots.
-// To add a real image later: replace { placeholder: true } with { src: "https://..." }
-// or import a local file at the top and use { src: yourImport }.
 type Photo = { src?: string; alt?: string; placeholder?: boolean };
 
 const photos: Photo[] = [
   { src: hero, alt: "Outreach team at sunset" },
   { src: g1, alt: "Children sharing chapati" },
   { src: g2, alt: "Volunteers cooking" },
-  { src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80", alt: "Community gathering" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699708/G15_xwhaqq.jpg", alt: "Community gathering" },
   { src: g3, alt: "Mid-day meal service" },
   { src: g4, alt: "Joy at the table" },
   { src: about, alt: "Our team" },
-  { src: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1200&q=80", alt: "Children playing" },
-  { src: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1200&q=80", alt: "Hands sharing food" },
-  { placeholder: true },
-  { placeholder: true },
-  { placeholder: true },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699709/G14_poqgjm.jpg", alt: "Children playing" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/q_auto/f_auto/v1779698737/Chapati_Nakuru_zzt2ik.jpg", alt: "Hands sharing food" },
+
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699763/G12_aogrha.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699836/G11_eaov4u.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699837/G10_cspcnm.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699837/G9_fjr2jj.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699842/G8_nqzga5.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699849/G7_n1lo9g.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699850/G5_zsalft.jpg", alt: "Hands sharing food" },
+
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699855/G3_vy4b1p.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699855/G6_p7wuxa.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699856/G4_wicmrp.jpg", alt: "Hands sharing food" },
+
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699863/G1_baalkq.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699886/G13_igmckt.jpg", alt: "Hands sharing food" },
+
+
+
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779700761/G16_k2vuj3.jpg", alt: "Chapati Preparations" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779701223/G17_xvjuny.jpg", alt: "Chapati Preparations" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779701224/G18_x8qvbh.jpg", alt: "Chapati Preparations" },  
 ];
 
 function Gallery() {
@@ -53,7 +68,8 @@ function Gallery() {
           {photos.map((p, i) => (
             <div
               key={i}
-              className="aspect-square overflow-hidden rounded-3xl border border-border bg-cream"
+              // className="aspect-square overflow-hidden rounded-3xl border border-border bg-cream"
+              className="aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-cream"
             >
               {p.placeholder || !p.src ? (
                 <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">

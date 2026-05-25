@@ -25,7 +25,7 @@ export const siteContent = {
     secondaryCta: { label: "Become a Volunteer", href: "/volunteer" },
     tertiaryCta: { label: "Shop Merch", href: "/shop" },
     socialProof: "120+ volunteers serving with us",
-    overlayBadge: { label: "Last Sunday", text: "240 meals shared in Nairobi" },
+    overlayBadge: { label: "Over the Sundays", text: "240 meals shared in Nairobi" },
   },
 
   // --- About section ---
