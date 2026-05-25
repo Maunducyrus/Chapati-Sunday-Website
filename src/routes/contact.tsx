@@ -27,8 +27,8 @@ function Contact() {
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="space-y-4">
             {[
-              { icon: Phone, label: "Phone", value: "+254 700 000 000" },
-              { icon: MessageCircle, label: "WhatsApp", value: "+254 700 000 000" },
+              { icon: Phone, label: "Phone", value: "+254 718 044 520" },
+              { icon: MessageCircle, label: "WhatsApp", value: "+254 718 044 520" },
               { icon: Mail, label: "Email", value: "hello@chapatisunday.org" },
               { icon: MapPin, label: "Location", value: "Nairobi, Kenya" },
             ].map(({ icon: Icon, label, value }) => (

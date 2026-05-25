@@ -1,8 +1,3 @@
-// =====================================================================
-// SITE CONTENT — Edit all homepage copy, stats, events & testimonials here.
-// Change any text, number or list below and the homepage updates automatically.
-// =====================================================================
-
 import heroImg from "@/assets/hero-outreach.jpg";
 import aboutImg from "@/assets/about-team.jpg";
 
@@ -30,7 +25,7 @@ export const siteContent = {
     secondaryCta: { label: "Become a Volunteer", href: "/volunteer" },
     tertiaryCta: { label: "Shop Merch", href: "/shop" },
     socialProof: "120+ volunteers serving with us",
-    overlayBadge: { label: "Last Sunday", text: "240 meals shared in Nairobi" },
+    overlayBadge: { label: "Over the Sundays", text: "240 meals shared in Nairobi" },
   },
 
   // --- About section ---
@@ -72,19 +67,19 @@ export const siteContent = {
   testimonials: [
     {
       quote:
-        "Chapati Sunday brought joy and hope to our children. Their visits are a highlight every month.",
-      name: "Mama Rose",
-      role: "Home Director, Hope Children's Home",
+        "Chapati Sunday brought joy and hope to children. The visits are a highlight every month.",
+      name: "Fred Nyaga",
+      role: "Chairperson, Chapati Sunday",
     },
     {
       quote: "Volunteering changed my life. I came to give and left with so much more.",
-      name: "Brian K.",
-      role: "Volunteer since 2022",
+      name: "Cyrus Maundu.",
+      role: "Volunteer since 2025",
     },
     {
-      quote: "The team is consistent, kind and truly committed to our kids.",
-      name: "Pastor Daniel",
-      role: "Partner, Mercy Home",
+      quote: "The team is consistent, kind and truly committed to kids. Spreading Love",
+      name: "Njambi",
+      role: "Volunteer since 2025",
     },
   ],
 

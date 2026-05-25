@@ -31,9 +31,9 @@ function Donate() {
             <Heart className="h-7 w-7" />
             <h2 className="mt-4 font-display text-3xl">M-Pesa</h2>
             <dl className="mt-6 space-y-3 text-primary-foreground/95">
-              <div className="flex items-center justify-between border-b border-white/20 pb-3"><dt>Paybill</dt><dd className="font-semibold">000000</dd></div>
-              <div className="flex items-center justify-between border-b border-white/20 pb-3"><dt>Account</dt><dd className="font-semibold">CHAPATI</dd></div>
-              <div className="flex items-center justify-between"><dt>Till Number</dt><dd className="font-semibold">123456</dd></div>
+              <div className="flex items-center justify-between border-b border-white/20 pb-3"><dt>Paybill</dt><dd className="font-semibold">714777</dd></div>
+              <div className="flex items-center justify-between border-b border-white/20 pb-3"><dt>Account</dt><dd className="font-semibold">0740197332</dd></div>
+              {/* <div className="flex items-center justify-between"><dt>Till Number</dt><dd className="font-semibold">123456</dd></div> */}
             </dl>
             <p className="mt-6 text-sm text-primary-foreground/85">After sending, you'll receive an automated thank-you via SMS or WhatsApp.</p>
           </div>

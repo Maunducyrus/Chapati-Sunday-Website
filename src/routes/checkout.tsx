@@ -13,8 +13,8 @@ export const Route = createFileRoute("/checkout")({
   component: Checkout,
 });
 
-const PAYBILL = "000000";
-const ACCOUNT_PREFIX = "SHOP";
+const PAYBILL = "714777";
+const ACCOUNT_PREFIX = "0740197332";
 const WHATSAPP_NUMBER = "254701165121";
 const SHIPPING_FLAT = 300;
 const SHIPPING_FREE_OVER = 5000;
@@ -38,7 +38,8 @@ function Checkout() {
 
   const shipping = subtotal === 0 ? 0 : subtotal >= SHIPPING_FREE_OVER ? 0 : SHIPPING_FLAT;
   const total = subtotal + shipping;
-  const account = `${ACCOUNT_PREFIX}-${orderId.replace("CS-", "")}`;
+  // const account = `${ACCOUNT_PREFIX}-${orderId.replace("CS-", "")}`;
+  const account = ACCOUNT_PREFIX;
 
   const copy = (text: string, key: string) => {
     navigator.clipboard?.writeText(text);

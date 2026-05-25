@@ -67,9 +67,9 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-brown">Donate</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li>M-Pesa Paybill: <span className="font-semibold text-foreground">000000</span></li>
-              <li>Account: <span className="font-semibold text-foreground">CHAPATI</span></li>
-              <li>Till Number: <span className="font-semibold text-foreground">123456</span></li>
+              <li>Paybill: <span className="font-semibold text-foreground">714777</span></li>
+              <li>Account: <span className="font-semibold text-foreground">0740197332</span></li>
+              {/* <li>Till Number: <span className="font-semibold text-foreground">123456</span></li> */}
               <li>
                 <Link to="/donate" className="text-primary hover:underline">
                   See all donation options →
@@ -81,7 +81,7 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-brown">Contact</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 text-primary" /> +254 700 000 000</li>
+              <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 text-primary" /> +254 718 044 520</li>
               <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5 text-primary" /> hello@chapatisunday.org</li>
               <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> Nairobi, Kenya</li>
             </ul>
@@ -89,8 +89,10 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
-          <p>Reg. No. CDF/00000/2019 — Fully Registered Community Group</p>
-          <p>© {new Date().getFullYear()} Chapati Sunday. Made with love.</p>
+          {/* <p>Reg. No. CDF/00000/2019 — Fully Registered Community Group</p> */}
+          <p>© {new Date().getFullYear()} Chapati Sunday. Made with love ❤️ by <Link to="https://github.com/Maunducyrus" className="text-primary hover:underline">
+                  Cyrus Maundu
+                </Link></p>
         </div>
       </div>
     </footer>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MessageCircle, Users, Phone, X } from "lucide-react";
 
 const WHATSAPP_NUMBER = "254701165121";
-const GROUP_LINK = "https://chat.whatsapp.com/your-group-invite-code";
+const GROUP_LINK = "https://chat.whatsapp.com/CwHrYE2uHOtGf90KFXjW88";
 
 export function FloatingWhatsApp() {
   const [open, setOpen] = useState(false);
@@ -28,7 +28,7 @@ export function FloatingWhatsApp() {
               </span>
               <div className="min-w-0">
                 <p className="text-sm font-semibold">Message us directly</p>
-                <p className="truncate text-xs text-muted-foreground">+254 701 165 121</p>
+                <p className="truncate text-xs text-muted-foreground">+254 718 044 520</p>
               </div>
             </a>
             <a

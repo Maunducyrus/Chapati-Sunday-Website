@@ -21,22 +21,39 @@ export const Route = createFileRoute("/gallery")({
   component: Gallery,
 });
 
-// EDIT THIS LIST — mix of local assets, dummy URLs, and { placeholder: true } slots.
 type Photo = { src?: string; alt?: string; placeholder?: boolean };
 
 const photos: Photo[] = [
   { src: hero, alt: "Outreach team at sunset" },
   { src: g1, alt: "Children sharing chapati" },
   { src: g2, alt: "Volunteers cooking" },
-  { src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80", alt: "Community gathering" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699708/G15_xwhaqq.jpg", alt: "Community gathering" },
   { src: g3, alt: "Mid-day meal service" },
   { src: g4, alt: "Joy at the table" },
   { src: about, alt: "Our team" },
-  { src: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1200&q=80", alt: "Children playing" },
-  { src: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1200&q=80", alt: "Hands sharing food" },
-  { placeholder: true },
-  { placeholder: true },
-  { placeholder: true },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699709/G14_poqgjm.jpg", alt: "Children playing" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/q_auto/f_auto/v1779698737/Chapati_Nakuru_zzt2ik.jpg", alt: "Hands sharing food" },
+
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699763/G12_aogrha.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699836/G11_eaov4u.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699837/G10_cspcnm.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699837/G9_fjr2jj.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699842/G8_nqzga5.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699849/G7_n1lo9g.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699850/G5_zsalft.jpg", alt: "Hands sharing food" },
+
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699855/G3_vy4b1p.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699855/G6_p7wuxa.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699856/G4_wicmrp.jpg", alt: "Hands sharing food" },
+
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699863/G1_baalkq.jpg", alt: "Hands sharing food" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779699886/G13_igmckt.jpg", alt: "Hands sharing food" },
+
+
+
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779700761/G16_k2vuj3.jpg", alt: "Chapati Preparations" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779701223/G17_xvjuny.jpg", alt: "Chapati Preparations" },
+  { src: "https://res.cloudinary.com/drg4s6msd/image/upload/v1779701224/G18_x8qvbh.jpg", alt: "Chapati Preparations" },  
 ];
 
 // EDIT THIS LIST — videos. Use YouTube/Vimeo embed URLs, or direct .mp4 URLs.
@@ -76,18 +93,13 @@ function Gallery() {
         title={<>Moments of <em className="not-italic text-gradient-warm">joy</em> and connection.</>}
         description="Photographs and videos from our outreach visits, kitchens and the children we love."
       />
-
-      <section className="container-page py-12">
-        {/* Tabs */}
-        <div className="mb-10 flex justify-center">
-          <div className="inline-flex rounded-full border border-border bg-cream p-1">
-            <button
-              onClick={() => setTab("images")}
-              className={`inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium transition-colors ${
-                tab === "images"
-                  ? "bg-foreground text-background"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
+      <section className="container-page py-20">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {photos.map((p, i) => (
+            <div
+              key={i}
+              // className="aspect-square overflow-hidden rounded-3xl border border-border bg-cream"
+              className="aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-cream"
             >
               <ImageIcon className="h-4 w-4" /> Images
             </button>

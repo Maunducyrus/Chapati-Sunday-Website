@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X, Heart, ShoppingBag } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCart } from "@/components/cart/CartContext";
+import logoImg from "@/assets/logo.png";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -41,9 +42,14 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container-page flex h-16 items-center justify-between md:h-20">
         <Link to="/" className="flex items-center gap-2 group">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-warm text-primary-foreground shadow-warm transition-transform group-hover:scale-105">
+          {/* <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-warm text-primary-foreground shadow-warm transition-transform group-hover:scale-105">
             <Heart className="h-4 w-4 fill-current" />
-          </span>
+          </span> */}
+          <img 
+            src={logoImg} 
+            alt="Chapati Sunday Logo" 
+            className="h-18 w-10 object-contain transition-transform group-hover:scale-105"
+          />          
           <span className="font-display text-xl font-medium tracking-tight">
             Chapati <span className="text-primary">Sunday</span>
           </span>

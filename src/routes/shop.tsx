@@ -66,10 +66,10 @@ function Shop() {
         <div className="mt-14 rounded-3xl border border-border bg-cream p-6 text-center md:p-10">
           <p className="text-xs font-semibold uppercase tracking-wider text-primary">Pay with M-Pesa Paybill</p>
           <p className="mt-3 font-display text-2xl md:text-3xl">
-            Paybill <span className="text-primary">000000</span> · Account <span className="text-primary">SHOP-YOURNAME</span>
+            Paybill <span className="text-primary">714777</span> · Account <span className="text-primary">0740197332</span>
           </p>
           <p className="mt-3 text-sm text-muted-foreground">
-            Send your order details to <span className="font-semibold text-foreground">+254 700 000 000</span> on WhatsApp after payment and we'll arrange delivery.
+            Send your order details to <span className="font-semibold text-foreground">+254 718 044 520</span> on WhatsApp after payment and we'll arrange delivery.
           </p>
         </div>
       </section>
