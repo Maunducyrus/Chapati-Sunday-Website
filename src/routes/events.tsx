@@ -15,10 +15,10 @@ export const Route = createFileRoute("/events")({
 });
 
 const events = [
-  { name: "Chapati Sunday Outreach", date: "June 15, 2026", location: "Nairobi", slots: 12, desc: "Cooking, games and storytime with the kids of Hope Children's Home." },
-  { name: "Back-to-School Drive", date: "July 06, 2026", location: "Kiambu", slots: 8, desc: "Distributing school supplies and shoes ahead of the new term." },
-  { name: "Mid-Year Mega Visit", date: "Aug 24, 2026", location: "Nakuru", slots: 20, desc: "Our biggest visit of the year. Bus transport provided from Nairobi." },
-  { name: "Mentorship Sunday", date: "Sept 14, 2026", location: "Mombasa", slots: 10, desc: "Career conversations with teen residents at Pwani Children's Home." },
+  { name: "Chapati Sunday Outreach", date: "May 31, 2026", location: "Kiambu", slots: 100, desc: "Cooking, games and storytime with the kids of Hope Children's Home." },
+  { name: "Back-to-School Drive", date: "August 20, 2026", location: "Nairobi", slots: 100, desc: "Distributing school supplies and shoes ahead of the new term." },
+  { name: "Mid-Year Team Building", date: "June , 2026", location: "Nairobi", slots: 100, desc: "Our biggest visit of the year. Bus transport provided from Nairobi." },
+  { name: "Mentorship Sunday", date: "Sept 14, 2026", location: "....", slots: 100, desc: "Career conversations with teen residents at Pwani Children's Home." },
 ];
 
 function Events() {

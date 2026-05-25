@@ -18,7 +18,7 @@ export const Route = createFileRoute("/about")({
 const milestones = [
   { year: "2019", text: "Friends roll the first chapatis for a children's home in Kasarani." },
   { year: "2020", text: "Launched monthly outreach across Nairobi during the pandemic." },
-  { year: "2022", text: "Officially registered as a community group." },
+  { year: "2022", text: "Extended Outreach outside Nairobi county." },
   { year: "2024", text: "Reached 10 counties and 5,000+ meals shared." },
 ];
 
@@ -46,7 +46,7 @@ function About() {
             "I never imagined a Sunday afternoon of rolling dough would lead us here. What we've learned is simple — children remember presence more than presents.
             Every plate of chapati carries a quiet promise: you are seen, you are loved."
           </p>
-          <p className="mt-4 font-semibold">— Jane Doe, Founder</p>
+          <p className="mt-4 font-semibold">— Fred Nyaga, Founder</p>
         </div>
       </section>
 
