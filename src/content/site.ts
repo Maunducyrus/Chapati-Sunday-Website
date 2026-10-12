@@ -36,17 +36,56 @@ export const siteContent = {
       "What started as a handful of friends rolling chapati on a quiet Sunday has grown into a community of over a hundred volunteers reaching children's homes in ten counties.",
       "We believe a warm meal is more than food — it is dignity, presence and the promise that someone cares.",
     ],
-    mission: "Bring nourishment and joy to every child we meet.",
-    vision: "A Kenya where no child eats — or feels — alone.",
+    mission: "To nourish young hearts and minds by combining shared meals, mentorship, and practical support to empower children in our communities.",
+    vision: "A world where every child grows up feeling valued, supported, and surrounded by a compassionate community.",
   },
 
   // --- Impact stats ---
-  stats: [
-    { value: 5000, suffix: "+", label: "Meals Shared" },
-    { value: 35, suffix: "", label: "Children's Homes Visited" },
-    { value: 120, suffix: "+", label: "Volunteers" },
-    { value: 10, suffix: "", label: "Counties Reached" },
-  ],
+  // stats: [
+  //   { value: 12000, suffix: "+", label: "Fresh, warm meals prepared and served with dignity." },
+  //   { value: 35, suffix: "", label: "Care Homes Partnered" },
+  //   { value: 120, suffix: "+", label: "Building trusted, long-term relationships with local shelters." },
+  //   { value: 10, suffix: "", label: "Counties Reached" },
+  // ],
+  // --- Impact stats ---
+stats: [
+  {
+    value: 12000,
+    suffix: "+",
+    label: "Fresh, warm meals prepared and served with dignity.",
+    title: "Warm Meals Served",
+  },
+  {
+    value: 120,
+    suffix: "",
+    label: "Building trusted, long-term relationships with local shelters.",
+    title: "Care Homes Partnered",
+  },
+  {
+    value: 200,
+    suffix: "+",
+    label: "Dedicated youth, professionals, and partners who make every Sunday count.",
+    title: "Dedicated Volunteers",
+  },
+  {
+    value: 10,
+    suffix: "+",
+    label: "Expanding our community footprint beyond Nairobi into regional homes.",
+    title: "Counties Impacted",
+  },
+  {
+    value: 1200,
+    suffix: "+",
+    label: "Combining food, clothing, learning materials, and essential financial aid provided directly to children's homes.",
+    title: "Care Packages Distributed",
+  },
+  {
+    value: 60,
+    suffix: "+",
+    label: "Dedicated visits hosted consistently every single month since 2022.",
+    title: "Monthly Outreaches Completed",
+  },
+],
 
   // --- Current needs ---
   needs: [
