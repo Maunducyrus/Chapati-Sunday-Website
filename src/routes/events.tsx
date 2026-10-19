@@ -3,10 +3,10 @@ import { PageHero } from "@/components/site/PageHero";
 import { Calendar, MapPin, Users } from "lucide-react";
 
 const events = [
-  { name: "Chapati Sunday Outreach", date: "May 31, 2026", location: "Kiambu", slots: 100, desc: "Cooking, games and storytime with the kids of Hope Children's Home." },
-  { name: "Back-to-School Drive", date: "August 20, 2026", location: "Nairobi", slots: 100, desc: "Distributing school supplies and shoes ahead of the new term." },
-  { name: "Mid-Year Team Building", date: "June , 2026", location: "Nairobi", slots: 100, desc: "Our biggest visit of the year. Bus transport provided from Nairobi." },
-  { name: "Mentorship Sunday", date: "Sept 14, 2026", location: "....", slots: 100, desc: "Career conversations with teen residents at Pwani Children's Home." },
+  { name: "Monthly Chapati Sunday Outreach", date: "May 31, 2026", location: "Kiambu", slots: 100, desc: "Our flagship monthly visit—join us as we cook together, lead mentorship activities, play games, and share a delicious meal with the children." },
+  { name: "Partner & Sponsor an Outreach", date: "August 20, 2026", location: "Nairobi", slots: 100, desc: "Want to celebrate a birthday, corporate team day, or special occasion with us? Partner with us to fund or co-host a full Sunday outreach." },
+  { name: "Donate Food, Clothes & Stationery", date: "June , 2026", location: "Nairobi", slots: 100, desc: "We collect dry food provisions, warm clothing, and school supplies continuously to deliver during our visits." },
+  { name: "Join Our Core Volunteer Team", date: "Sept 14, 2026", location: "....", slots: 100, desc: "Looking to serve regularly? Step into roles like event coordination, kitchen prep, logistics, media, or youth mentorship." },
 ];
 
 export default function Events() {
@@ -15,7 +15,9 @@ export default function Events() {
       <PageHero
         eyebrow="Events"
         title={<>Pick a Sunday to <em className="not-italic text-gradient-warm">show up</em>.</>}
-        description="We host outreach visits monthly across multiple counties. RSVP for your slot below."
+        description="We host monthly outreach visits across various counties. 
+Reserve your volunteer slot below to roll dough, play games, and share a warm meal with the children.
+"
       />
       <section className="container-page py-20">
         <div className="grid gap-5 md:grid-cols-2">

@@ -108,7 +108,7 @@ export default function Gallery() {
       <PageHero
         eyebrow="Gallery"
         title={<>Moments of <em className="not-italic text-gradient-warm">joy</em> and connection.</>}
-        description="Photographs and videos from our outreach visits, kitchens and the children we love."
+        description="Every photo tells a story of dedicated volunteers, shared warmth, and smiles that stay with us long after Sunday."
       />
 <section className="container-page py-20">
   {/* Tabs */}

@@ -15,8 +15,8 @@ export default function Impact() {
     <>
       <PageHero
         eyebrow="Our Impact"
-        title={<>Numbers that <em className="not-italic text-gradient-warm">tell a story</em>.</>}
-        description="Every figure here represents a child smiling, a kitchen warmed and a community moved."
+        title={<>More than stats, <em className="not-italic text-gradient-warm">Lives touched</em>.</>}
+        description="Every figure reflects a story of hope, a dedicated volunteer, and a promise fulfilled to the children we serve."
       />
 
       <section className="container-page py-20">
